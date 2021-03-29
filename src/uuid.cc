@@ -7,6 +7,7 @@ namespace package
   using v8::FunctionCallbackInfo;
   using v8::Isolate;
   using v8::Local;
+  using v8::NewStringType;
   using v8::Object;
   using v8::String;
   using v8::Value;
@@ -20,9 +21,10 @@ namespace package
     const char *c = s.c_str();
 
     Isolate *isolate = args.GetIsolate();
+
     args.GetReturnValue()
         .Set(String::NewFromUtf8(
-                 isolate, c)
+                 isolate, c, NewStringType::kNormal)
                  .ToLocalChecked());
   }
 

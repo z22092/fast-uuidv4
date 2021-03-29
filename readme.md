@@ -3,6 +3,13 @@
 ###  Very fast UUID version 4 variant 1 as specified in [RFC-4122](https://tools.ietf.org/html/rfc4122) generator using c++ [lib](https://github.com/crashoz/uuid_v4) 
 ---
 ## Install:	
+You also need to install:
+- Node 10+
+- python 
+- g++ 
+- and make <br>
+
+For more details see [node-gyp](https://github.com/nodejs/node-gyp/)
 ```bash
 $ npm i fast-uuidv4
 ```
@@ -14,8 +21,9 @@ console.log(uuid) // c6bc3d9f-3e2c-4170-99e7-b9809f229ecb
 ```
 ## Benchmarks:
 
-uuid => https://www.npmjs.com/package/uuid
-crypto nodejs => Nodejs Vanilla
+- uuid => https://www.npmjs.com/package/uuid
+- crypto nodejs => Nodejs Vanilla
+- fast-uuidv4 => This package
 
 |  name |  result |
 |--|--|
@@ -28,6 +36,3 @@ crypto nodejs => Nodejs Vanilla
 $ git clone https://github.com/z22092/fast-uuidv4.git & cd fast-uuidv4/benchmarks
 $ npm i & npm start
 ```
-
-
-
