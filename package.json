@@ -6,5 +6,13 @@
   "author": "Jefferson Venceslau",
   "license": "MIT",
   "allow-same-version": true,
-  "git-tag-version": true
+  "git-tag-version": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/z22092/fast-uuidv4"
+  },
+  "keywords": [
+    "uuid",
+    "rfc4122"
+  ]
 }
