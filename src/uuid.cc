@@ -12,10 +12,10 @@ namespace package
   using v8::Value;
 
   UUID::UUIDGenerator<std::mt19937_64> uuidGenerator;
-  UUID::UUID uuid = uuidGenerator.getUUID();
 
   void v4(const FunctionCallbackInfo<Value> &args)
   {
+    UUID::UUID uuid = uuidGenerator.getUUID();
     std::string s = uuid.str();
     const char *c = s.c_str();
 
