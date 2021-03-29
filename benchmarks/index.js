@@ -1,11 +1,10 @@
 'use strict';
 
-const chalk = require('chalk');
+const Benchmark = require('benchmark');
 
 const { v4 } = require('uuid');
 const { randomFillSync } = require('crypto');
-const { uuidV4 } = require('../build/Release/uuid.node');
-
+const { uuidV4 } = require('fast-uuidv4');
 class UUID {
   static #byteToHex = Array.from({ length: 256 }, (_, i) => (i + 0x100).toString(16).substr(1));
   static #random8Pool = new Uint8Array(256);
@@ -46,31 +45,47 @@ class UUID {
   }
 }
 
-const U = 100000000;
-console.log('\n' + '='.repeat(50) + '\n');
-console.log(chalk.bgBlueBright('benchmarks test:' + U + ' UUIDs' ))
-console.log('\n' + '='.repeat(50) + '\n');
-// using crypto
-{
-  const m = chalk.red("node js using crypto");
-  console.time(m);
-  for (let i = 0; i < U; i++) UUID.v4();
-  console.timeEnd(m);
-}
-console.log('\n' + '='.repeat(50) + '\n');
-// using using lib
-{
-  const m = chalk.red("uuid lib");
-  console.time(m);
-  for (let i = 0; i < U; i++) v4();
-  console.timeEnd(m);
-}
-console.log('\n' + '='.repeat(50) + '\n');
-// using using c++
-{
-  const m = chalk.red("c++ lib");
-  console.time(m);
-  for (let i = 0; i < U; i++) uuidV4();
-  console.timeEnd(m);
-}
-console.log('\n' + '='.repeat(50));
+
+const suite = new Benchmark.Suite;
+
+suite.
+  add('uuid', {
+    defer: true,
+    fn: function (deferred) {
+
+      v4();
+      deferred.resolve();
+    }
+  });
+  
+suite.
+  add('crypto nodejs', {
+    defer: true,
+    fn: function (deferred) {
+      UUID.v4();
+      deferred.resolve();
+    }
+  });
+
+suite.
+  add('fast-uuidv4', {
+    defer: true,
+    fn: function (deferred) {
+      uuidV4();
+      deferred.resolve();
+    }
+  });
+
+suite.
+  on("cycle", function (event) {
+    console.log(String(event.target));
+  });
+
+suite.
+  on('complete', function () {
+    console.log('Fastest is ' + this.filter('fastest').map('name'));
+  });
+
+suite.
+  run();
+
