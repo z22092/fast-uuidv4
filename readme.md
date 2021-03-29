@@ -14,8 +14,8 @@ console.log(uuid) // c6bc3d9f-3e2c-4170-99e7-b9809f229ecb
 ```
 ## Benchmarks:
 
-uuid => https://www.npmjs.com/package/uuid
-crypto nodejs => Nodejs Vanilla
+- uuid => https://www.npmjs.com/package/uuid
+- crypto nodejs => Nodejs Vanilla
 
 |  name |  result |
 |--|--|
