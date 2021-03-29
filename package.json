@@ -1,0 +1,10 @@
+{
+  "name": "fast-uuidv4",
+  "version": "0.0.1",
+  "description": "Hardware-accelerated uuidV4 gen",
+  "main": "./build/Release/uuid.node",
+  "author": "Jefferson Venceslau",
+  "license": "MIT",
+  "allow-same-version": true,
+  "git-tag-version": true
+}
