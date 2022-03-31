@@ -8,15 +8,6 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node-version: [12.x, 14.x, 16.x]
-        include:
-          # - os: macos-latest
-          #   node-version: 14.x
-          # - os: macos-latest
-          #   node-version: 16.x
-          - os: windows-latest
-            node-version: 14.x
-          - os: windows-latest
-            node-version: 16.x
 
     runs-on: ${{ matrix.os }}
 
