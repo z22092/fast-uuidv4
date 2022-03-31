@@ -2,14 +2,8 @@
     "targets": [
         {
             "target_name": "uuid",
-            "sources": [
-                "src/uuid.cc",
-                "uuid_v4.h",
-                "endianness.h"
-            ],
-            "cflags":[
-                "-march=native"
-            ]
+            "sources": ["src/uuid.cc"],
+            "cflags": ["-march=native"],
         }
     ]
 }

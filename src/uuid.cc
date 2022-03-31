@@ -1,5 +1,5 @@
 #include <node.h>
-#include "uuid_v4.h"
+#include "./uuid_v4/uuid_v4.h"
 
 namespace package
 {
@@ -12,11 +12,11 @@ namespace package
   using v8::String;
   using v8::Value;
 
-  UUID::UUIDGenerator<std::mt19937_64> uuidGenerator;
+  UUIDv4::UUIDGenerator<std::mt19937_64> uuidGenerator;
 
   void v4(const FunctionCallbackInfo<Value> &args)
   {
-    UUID::UUID uuid = uuidGenerator.getUUID();
+    UUIDv4::UUID uuid = uuidGenerator.getUUID();
     std::string s = uuid.str();
     const char *c = s.c_str();
 
@@ -30,6 +30,7 @@ namespace package
 
   void Initialize(Local<Object> exports)
   {
+    NODE_SET_METHOD(exports, "v4", v4);
     NODE_SET_METHOD(exports, "uuidV4", v4);
   }
 
