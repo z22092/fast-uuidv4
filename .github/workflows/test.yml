@@ -1,0 +1,36 @@
+name: test
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ubuntu-latest]
+        node-version: [12.x, 14.x, 16.x]
+        include:
+          # - os: macos-latest
+          #   node-version: 14.x
+          # - os: macos-latest
+          #   node-version: 16.x
+          - os: windows-latest
+            node-version: 14.x
+          - os: windows-latest
+            node-version: 16.x
+
+    runs-on: ${{ matrix.os }}
+
+    steps:
+      - uses: actions/checkout@v1
+        with:
+          submodules: true
+      - run: git submodule update --init
+
+      - uses: actions/setup-node@v1
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        with:
+          node-version: ${{ matrix.node-version }}
+      - run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+      - run: npm install
+      - run: npm test
