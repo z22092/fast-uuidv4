@@ -12,6 +12,7 @@ You also need to install:
 For more details see [node-gyp](https://github.com/nodejs/node-gyp/)
 ```bash
 $ npm i fast-uuidv4
+$ yarn add fast-uuidv4
 ```
 ## usage:
 ```javascript
