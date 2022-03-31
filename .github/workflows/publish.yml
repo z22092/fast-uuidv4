@@ -10,8 +10,12 @@ jobs:
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v2
         with:
-          node-version: '16.x'
-          registry-url: 'https://registry.npmjs.org'
+          node-version: "16.x"
+          registry-url: "https://registry.npmjs.org"
+          submodules: recursive
+      - run: git submodule update --recursive --checkout
+      - run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+
       - run: npm install
       - run: npm publish
         env:
