@@ -12,6 +12,7 @@
 	"git-tag-version": true,
 	"scripts": {
 		"install": "npx node-gyp-build",
+		"test": "npm install && node test",
 		"commit:all": "git add . && npm run commit",
 		"commit:message": "npx --no-install cz",
 		"release": "npx --no-install standard-version",
