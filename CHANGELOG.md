@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/z22092/fast-uuidv4/compare/v1.4.1...v1.4.2) (2022-03-31)
+
+
+### Bug Fixes
+
+* publish ci ([c7eecad](https://github.com/z22092/fast-uuidv4/commit/c7eecad0bb19b8d8c3f6c204fef3748bfcb793fc))
+
 ### [1.4.1](https://github.com/z22092/fast-uuidv4/compare/v1.4.0...v1.4.1) (2022-03-31)
 
 ## [1.4.0](https://github.com/z22092/fast-uuidv4/compare/v1.3.0...v1.4.0) (2022-03-31)
