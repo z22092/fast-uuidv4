@@ -15,6 +15,7 @@ jobs:
           submodules: recursive
       - run: git submodule update --recursive --checkout
       - run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+
       - run: npm install
       - run: npm publish
         env:
