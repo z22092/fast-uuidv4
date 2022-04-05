@@ -1,3 +1,7 @@
-[submodule "src/uuid_v4"]
-path = src/uuid_v4
-url = https://github.com/crashoz/uuid_v4.git
+[submodule "lib/linux/uuid_v4"]
+	path = lib/linux/uuid_v4
+	url = https://github.com/crashoz/uuid_v4.git
+
+[submodule "lib/others/uuid4"]
+path = lib/others/uuid4
+url = https://github.com/z22092/uuid4.git

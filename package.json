@@ -2,17 +2,25 @@
 	"name": "fast-uuidv4",
 	"version": "1.4.2",
 	"description": "Hardware-accelerated uuidV4 gen",
-	"main": "./build/Release/uuid.node",
-	"exports": "./build/Release/uuid.node",
-	"types": "./@types",
-	"type": "module",
+	"main": "dist/src/index.js",
+	"typings": "dist/src/index.d.ts",
+	"exports": {
+		".": {
+			"require": "./dist/src/index.js"
+		}
+	},
 	"author": "Jefferson Venceslau",
 	"license": "MIT",
 	"allow-same-version": true,
 	"git-tag-version": true,
 	"scripts": {
-		"install": "npx node-gyp-build",
-		"test": "npm install && node test",
+		"clean": "npx --no-install rimraf ./dist ./build",
+		"build": "tsc",
+		"gyp:configure": "npx --no-install node-gyp configure",
+		"gyp:build": "npx --no-install node-gyp build",
+		"install": "npm run gyp:configure && npm run gyp:build",
+		"test": "npm i && npm run clean && npm run install && npm run build && node dist/test",
+		"benchmark": "npm i && npm run clean && npm run install && npm run build && npm --prefix ./benchmark run start",
 		"commit:all": "git add . && npm run commit",
 		"commit:message": "npx --no-install cz",
 		"release": "npx --no-install standard-version",
@@ -30,7 +38,7 @@
 		"node": ">= 12.0.0"
 	},
 	"dependencies": {
-		"node-gyp-build": "^4.3.0"
+		"node-gyp": "^9.0.0"
 	},
 	"devDependencies": {
 		"@commitlint/cli": "^16.2.3",
@@ -39,6 +47,7 @@
 		"cz": "^1.8.2",
 		"cz-conventional-changelog": "^3.3.0",
 		"husky": "^7.0.4",
+		"rimraf": "^3.0.2",
 		"standard-version": "^9.3.2"
 	},
 	"config": {

@@ -8,6 +8,16 @@ jobs:
       matrix:
         os: [ubuntu-latest]
         node-version: [12.x, 14.x, 16.x]
+        include:
+          - os: macos-latest
+            node-version: 14.x
+          - os: macos-latest
+            node-version: 16.x
+          - os: windows-latest
+            node-version: 14.x
+          - os: windows-latest
+            node-version: 16.x
+
     runs-on: ${{ matrix.os }}
 
     steps:
@@ -19,8 +29,16 @@ jobs:
       - uses: actions/setup-node@v1
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          MSVS_VERSION: "2021"
         with:
           node-version: ${{ matrix.node-version }}
+
       - run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
-      - run: npm install
+
+      - name: Windows condition
+        if: runner.os == 'Windows'
+        run: |
+          node scripts/install_visual_studio.js
+          npm config set msvs_version ${MSVS_VERSION} --global
+
       - run: npm test
