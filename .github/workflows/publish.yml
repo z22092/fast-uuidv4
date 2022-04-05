@@ -20,5 +20,5 @@ jobs:
           node-version: "16.x"
           registry-url: "https://registry.npmjs.org"
       - run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
-      - run: npm build
+      - run: npm run build
       - run: npm publish
