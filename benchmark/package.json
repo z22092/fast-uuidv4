@@ -1,0 +1,17 @@
+{
+	"name": "benchmarks",
+	"version": "2.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start": "npm i && node index.js",
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"keywords": [],
+	"author": "jefferson venceslau",
+	"license": "ISC",
+	"dependencies": {
+		"benny": "^3.7.1",
+		"uuid": "^8.3.2"
+	}
+}
