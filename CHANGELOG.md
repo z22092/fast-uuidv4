@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.4.3 (2022-04-05)
+
+
+### Bug Fixes
+
+* add run to npm build ([1d06973](https://github.com/z22092/fast-uuidv4/commit/1d069730ad5b0b90c482a50c4e4f1d7ac8c91606))
+
 ### [1.4.2](https://github.com/z22092/fast-uuidv4/compare/v1.4.1...v1.4.2) (2022-03-31)
 
 
