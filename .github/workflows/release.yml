@@ -1,30 +1,29 @@
 on:
-  push:
-    # Sequence of patterns matched against refs/tags
-    tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+  workflow_run:
+    workflows: ["test"]
+    types:
+      - completed
 
 name: Create Release
 
 jobs:
   build:
-    name: Create Release
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # This token is provided by Actions, you do not need to create your own token
+      - uses: actions/checkout@v3
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          submodules: recursive
-          body: |
-            Changes in this Release
-            - First Change
-            - Second Change
-          draft: false
-          prerelease: false
+          submodules: true
+      - run: git submodule update --init
+      - uses: actions/setup-node@v2
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        with:
+          node-version: "16.x"
+      - run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+      - run: npm config set '//registry.npmjs.org/:_authToken' "${NODE_AUTH_TOKEN}"
+      - run: npm i
+      - run: npm run release
+      - run: |
+          git push --follow-tags
