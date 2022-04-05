@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## 1.5.0 (2022-04-05)
+
+
+### Features
+
+* configure ci to release and publish ([439f3b9](https://github.com/z22092/fast-uuidv4/commit/439f3b9418bde9b63f1243ab91351a655b0afcfa))
+
 ### [1.4.2](https://github.com/z22092/fast-uuidv4/compare/v1.4.1...v1.4.2) (2022-03-31)
 
 
