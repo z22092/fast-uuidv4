@@ -2,5 +2,9 @@ build
 .vscode
 .git
 .npmignore
+.github
 node_modules
 benchmarks
+lib
+src
+scripts
