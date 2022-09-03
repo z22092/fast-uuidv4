@@ -1,9 +1,6 @@
 build
-.vscode
-.git
-.npmignore
-.github
+.*
+.md
 node_modules
 benchmarks
-lib
 src
