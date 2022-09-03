@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.19](https://github.com/z22092/fast-uuidv4/compare/v1.4.18...v1.4.19) (2022-09-03)
+
+
+### Bug Fixes
+
+* typings definition ([ad5d29d](https://github.com/z22092/fast-uuidv4/commit/ad5d29de778b88dd5ce1453b7f19c62ac81ea17e))
+
 ### [1.4.18](https://github.com/z22092/fast-uuidv4/compare/v1.4.17...v1.4.18) (2022-09-03)
 
 ### [1.4.17](https://github.com/z22092/fast-uuidv4/compare/v1.4.16...v1.4.17) (2022-09-03)
