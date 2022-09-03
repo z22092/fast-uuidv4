@@ -26,7 +26,7 @@ const checkLibExist = () => {
 	throw new Error("erro to import native file");
 };
 
-export const uuidV4: UuidV4 = checkLibExist();
+export const uuidV4: Fn = checkLibExist();
 
 
 const all: All = {
