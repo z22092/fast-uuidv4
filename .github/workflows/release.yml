@@ -1,5 +1,7 @@
 on:
   workflow_run:
+    branches:
+      - main
     workflows: ["test"]
     types:
       - completed
