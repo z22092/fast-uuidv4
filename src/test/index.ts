@@ -1,5 +1,5 @@
 import assert from "assert";
-import { uuidV4 } from "../";
+import { UuidV4 } from "../";
 
 enum COLORS {
 	RED_COLOR = "\x1b[31m",
