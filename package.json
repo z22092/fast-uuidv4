@@ -18,7 +18,7 @@
 		"build": "tsc",
 		"gyp:configure": "npx --no-install node-gyp configure",
 		"gyp:build": "npx --no-install node-gyp build",
-		"install": "npm run gyp:configure && npm run gyp:build",
+		"install": "npm run gyp:configure && npm run gyp:build && npm run build ",
 		"test": "npm i && npm run clean && npm run install && npm run build && node dist/test",
 		"benchmark": "npm i && npm run clean && npm run install && npm run build && npm --prefix ./benchmark run start",
 		"commit:all": "git add . && npm run commit",
