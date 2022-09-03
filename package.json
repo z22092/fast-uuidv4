@@ -1,6 +1,6 @@
 {
 	"name": "fast-uuidv4",
-	"version": "1.4.13",
+	"version": "1.4.14",
 	"description": "Hardware-accelerated uuidV4 gen",
 	"main": "dist/src/index.js",
 	"typings": "dist/src/index.d.ts",
