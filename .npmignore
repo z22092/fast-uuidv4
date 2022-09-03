@@ -3,4 +3,4 @@ build
 .md
 node_modules
 benchmarks
-src
+./src

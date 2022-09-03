@@ -1,12 +1,12 @@
 {
 	"name": "fast-uuidv4",
-	"version": "1.4.13",
+	"version": "1.4.19",
 	"description": "Hardware-accelerated uuidV4 gen",
-	"main": "dist/src/index.js",
-	"typings": "dist/src/index.d.ts",
+	"main": "dist/index.js",
+	"typings": "dist/index.d.ts",
 	"exports": {
 		".": {
-			"require": "./dist/src/index.js"
+			"require": "./dist/index.js"
 		}
 	},
 	"author": "Jefferson Venceslau",
